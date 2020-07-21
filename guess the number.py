@@ -29,13 +29,15 @@ def range1000():
     num_range = 1000
     new_game()
 
+
 def input_guess(guess):
     # main game logic goes here
     global guesses
     num = int(guess)
-    print ('Guess was', num)
+    print('Guess was', num)
     if guesses == 0:
         print('You run out of guesses! You lose (:')
+        print('The secret number was', secret_number)
         print(' ')
         new_game()
     elif secret_number > num:
@@ -50,8 +52,9 @@ def input_guess(guess):
         print(' ')
     else:
         print('Correct! You win!')
-        print (' ')
+        print(' ')
         new_game()
+
 
 # create frame
 f = simplegui.create_frame("Guess the number", 200, 200)
@@ -62,5 +65,3 @@ f.add_button("Range is [0, 1000)", range1000, 200)
 f.add_input("Enter a guess", input_guess, 200)
 # call new_game
 new_game()
-
-# always remember to check your completed program against the grading rubric
